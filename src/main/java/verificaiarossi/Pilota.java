@@ -22,7 +22,7 @@ public class Pilota extends Thread{
             for (int i = 0; i < nGiri; i++) {
                 double tempoGiro = Math.random() * 1000 + 1000;
                 this.sleep((long)tempoGiro);
-                System.out.println(nome + " ha terminato il giro " + (i + 1) + " di " + ((int)nGiri+1) + " (" + tempoGiro/1000 + "s)");
+                System.out.println(nome + " ha terminato il giro " + (i + 1) + " di " + ((int)nGiri+1) + " (" + ((float)tempoGiro/1000) + "s)");
             }
             g.scendi(this);
             tempoCambio = s.entra(this);
