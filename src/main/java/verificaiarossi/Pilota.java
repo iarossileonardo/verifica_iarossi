@@ -14,19 +14,19 @@ public class Pilota extends Thread{
     @Override
     public void run() {
         try {
-            s.entra(this);
-            double tempoCambio = Math.random() * 0.500 + 1000;
-            this.sleep(1000);
+            double tempoCambio = s.entra(this);;
+            this.sleep((long)tempoCambio);
             s.esci(this);
             g.sali(this);
-            for (int i = 0; i < 5; i++) {
-                double tempoGiro = Math.random() * 1000 + 1;
+            double nGiri = Math.random() * 4 + 1;
+            for (int i = 0; i < nGiri; i++) {
+                double tempoGiro = Math.random() * 1000 + 1000;
                 this.sleep((long)tempoGiro);
-                System.out.println(nome + " ha terminato il giro " + (i + 1) + " (" + tempoGiro + "s)");
+                System.out.println(nome + " ha terminato il giro " + (i + 1) + " di " + ((int)nGiri+1) + " (" + tempoGiro/1000 + "s)");
             }
             g.scendi(this);
-            s.entra(this);
-            sleep(1000);
+            tempoCambio = s.entra(this);
+            sleep((long)tempoCambio);
             s.esci(this);
         } catch (Exception e) {
             e.printStackTrace();
